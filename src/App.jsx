@@ -1,10 +1,13 @@
 import "./App.css";
+import CardClima from "./components/CardClima";
+import Formulario from "./components/Formulario";
 
 function App() {
   return (
     <>
       <div>
-        <h1> hello world</h1>
+        <Formulario />
+        <CardClima />
       </div>
     </>
   );
