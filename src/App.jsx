@@ -7,8 +7,9 @@ import Swal from "sweetalert2";
 
 function App() {
   const [dataClima, setDataClima] = useState({});
+  console.log("file: App.jsx:10 ~ App ~ dataClima:", dataClima);
   const [dataForm, setDataForm] = useState({});
-  console.log("file: App.jsx:11 ~ App ~ dataForm:", dataForm);
+  console.log("file: App.jsx:12 ~ App ~ dataForm:", dataForm);
 
   const {
     register,
@@ -29,6 +30,7 @@ function App() {
         showConfirmButton: false,
         timer: 2000,
       });
+
       reset();
     } else {
       Swal.fire({
@@ -37,29 +39,22 @@ function App() {
       });
     }
   };
-  // usamos el hook useForm de la librería. El cual devuelve un objeto.
-  // register: function que permite registrar los distintos campos del form.
-  // handleSubmit: para gestionar la acción del submit del formulario.
-  // usamos el handleSubmit a la cual le pasamos la función onSubmit
-  // usamos el register en los form.control o input, para cargar los input al objeto del form
-  // en register podemos agregar un segundo parametro {}, para hacerlo requerido al input o agregarle la longitud max.
-  // con la propiedad {errors} la podemos utilizar para mostrar un msj de error al usuario, para sacar esta propiedad utilizamos formState
 
-  // useEffect(() => {
-  //   consultarApi();
-  // }, []);
+  useEffect(() => {
+    consultarApi();
+  }, [dataForm]);
 
-  // const consultarApi = async () => {
-  //   try {
-  //     const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=tucuman,ar&appid=ce25853294f1642f1da64c29b939a302&units=metric&lang=es`;
-  //     const respuesta = await fetch(API_URL);
+  const consultarApi = async () => {
+    try {
+      const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${dataForm.city},${dataForm.country}&appid=ce25853294f1642f1da64c29b939a302&units=metric&lang=es`;
+      const respuesta = await fetch(API_URL);
 
-  //     const dato = await respuesta.json();
-  //     setDataClima(dato);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+      const dato = await respuesta.json();
+      setDataClima(dato);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="bg-app d-flex flex-column min-vh-100">
