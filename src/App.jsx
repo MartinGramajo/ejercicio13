@@ -4,12 +4,10 @@ import Formulario from "./components/Formulario";
 
 function App() {
   return (
-    <>
-      <div>
-        <Formulario />
-        <CardClima />
-      </div>
-    </>
+    <div className="bg-app d-flex flex-column min-vh-100">
+      <Formulario />
+      <CardClima />
+    </div>
   );
 }
 

@@ -20,7 +20,7 @@ const Formulario = () => {
   return (
     <div className="d-flex justify-content-center">
       <Form
-        className="card w-50 my-5"
+        className="card my-5"
         noValidate
         validated={validated}
         onSubmit={handleSubmit}
@@ -47,7 +47,6 @@ const Formulario = () => {
         </Row>
         <Button type="submit">Submit form</Button>
       </Form>
-      );
     </div>
   );
 };

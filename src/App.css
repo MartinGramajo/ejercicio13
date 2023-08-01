@@ -1,0 +1,10 @@
+.bg-app {
+  width: 100%;
+  min-height: 100vh;
+  background: url(../src/assets/bg.jpg) no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
