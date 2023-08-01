@@ -1,6 +1,5 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
+import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 
@@ -18,34 +17,33 @@ const Formulario = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center py-5">
       <Form
-        className="card my-5"
+        onSubmit={handleSubmit}
+        className="p-4 form-box"
         noValidate
         validated={validated}
-        onSubmit={handleSubmit}
+        style={{ borderRadius: "10px" }}
       >
-        <Row className="mb-3">
-          <Form.Group as={Col} md="12" controlId="validationCustom01">
-            <Form.Label>Nombre de la ciudad</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              placeholder="Ingrese un nombre de ciudad"
-            />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        <Row className="mb-3 ">
+          <Form.Group className="user-box" controlId="validationCustom01">
+            <Form.Control className="ps-2" name="city" required type="text" />
+            <Form.Label className="ms-3 h6">Nombre de la Ciudad</Form.Label>
+            <Form.Control.Feedback className="mb-2" type="invalid">
+              Por favor ingresar una ciudad.
+            </Form.Control.Feedback>
           </Form.Group>
-          <Form.Group as={Col} md="12" controlId="validationCustom02">
-            <Form.Label>Nombre del País</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              placeholder="Ingrese el nombre de un País"
-            />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          <Form.Group className="my-2 user-box" controlId="validationCustom02">
+            <Form.Control name="country" required type="text" />
+            <Form.Label className=" ms-3  h6">Nombre del país</Form.Label>
+            <Form.Control.Feedback type="invalid">
+              Por favor ingresa un país
+            </Form.Control.Feedback>
           </Form.Group>
         </Row>
-        <Button type="submit">Submit form</Button>
+        <div className="d-flex justify-content-center">
+          <Button type="submit">Enviar formulario</Button>
+        </div>
       </Form>
     </div>
   );
