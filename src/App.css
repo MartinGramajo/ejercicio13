@@ -151,6 +151,12 @@
   .input {
     width: 70vw;
   }
+
+  .city,
+  .temp {
+    font-size: 2rem;
+    font-weight: bold;
+  }
 }
 
 .peso-bold {
@@ -604,4 +610,9 @@
   100% {
     height: 28px;
   }
+}
+
+/* cartel not found */
+.cartel {
+  width: 350px;
 }
