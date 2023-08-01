@@ -38,8 +38,26 @@ const Formulario = ({ register, handleSubmit, onSubmit, errors }) => {
             )}
           </Form.Group>
         </Row>
-        <div className="d-flex justify-content-center">
-          <Button type="submit">Enviar formulario</Button>
+        <div className="d-flex justify-content-center py-4">
+          <button type="submit" className="button button--pen">
+            <div className="button__wrapper">
+              <span className="button__text">Clima</span>
+            </div>
+            <div className="characterBox">
+              <div className="character wakeup">
+                <div className="character__face"></div>
+                <div className="charactor__face2"></div>
+              </div>
+              <div className="character wakeup">
+                <div className="character__face"></div>
+                <div className="charactor__face2"></div>
+              </div>
+              <div className="character">
+                <div className="character__face"></div>
+                <div className="charactor__face2"></div>
+              </div>
+            </div>
+          </button>
         </div>
       </Form>
     </div>
