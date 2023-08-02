@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { Spinner } from "react-bootstrap";
 import cartel from "../src/assets/cartel.png";
+import Footer from "./components/Footer";
+import Titulo from "./components/Titulo";
 
 function App() {
   const [dataClima, setDataClima] = useState({
@@ -85,23 +87,31 @@ function App() {
 
   return (
     <div className="bg-app d-flex flex-column min-vh-100">
-      <Formulario
-        register={register}
-        handleSubmit={handleSubmit}
-        onSubmit={onSubmit}
-        errors={errors}
-      />
-      {dataClima.cod === "404" ? (
-        <img className="cartel" src={cartel} alt="" />
-      ) : dataClima.length === 0 ? (
-        ""
-      ) : mostrarSpinner ? (
-        <div className="my-5 text-center">
-          <Spinner className="fs-1" animation="border" variant="light" />
-        </div>
-      ) : (
-        <CardClima datos={dataClima} />
-      )}
+      <section>
+        <Titulo />
+      </section>
+      <section>
+        <Formulario
+          register={register}
+          handleSubmit={handleSubmit}
+          onSubmit={onSubmit}
+          errors={errors}
+        />
+      </section>
+      <section>
+        {dataClima.cod === "404" ? (
+          <img className="cartel" src={cartel} alt="" />
+        ) : dataClima.length === 0 ? (
+          ""
+        ) : mostrarSpinner ? (
+          <div className="my-5 text-center">
+            <Spinner className="fs-1" animation="border" variant="light" />
+          </div>
+        ) : (
+          <CardClima datos={dataClima} />
+        )}
+      </section>
+      <Footer />
     </div>
   );
 }
